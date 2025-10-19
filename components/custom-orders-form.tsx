@@ -94,20 +94,20 @@ export function CustomOrdersForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-8">
+    <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
       {/* Customer Information */}
-      <div className="space-y-6">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 bg-gradient-to-r from-[#0ea4f9] to-[#021348] rounded-full flex items-center justify-center">
-            <User className="text-white" size={20} />
+      <div className="space-y-4 sm:space-y-6">
+        <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#0ea4f9] to-[#021348] rounded-full flex items-center justify-center">
+            <User className="text-white sm:w-5 sm:h-5" size={16} />
           </div>
-          <h3 className="text-2xl font-bold text-[#021348]">Your Information</h3>
+          <h3 className="text-xl sm:text-2xl font-bold text-[#021348]">Your Information</h3>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div className="space-y-2">
-            <label className="block text-sm font-semibold text-[#021348] flex items-center gap-2">
-              <User size={16} />
+            <label className="block text-xs sm:text-sm font-semibold text-[#021348] flex items-center gap-2">
+              <User size={14} className="sm:w-4 sm:h-4" />
               Full Name *
             </label>
             <input
@@ -115,14 +115,14 @@ export function CustomOrdersForm() {
               value={fullName}
               onChange={(e) => setFullName(e.target.value)}
               placeholder="Enter your full name"
-              className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0ea4f9] focus:border-[#0ea4f9] outline-none transition-all duration-200 bg-gray-50 focus:bg-white"
+              className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#0ea4f9] focus:border-[#0ea4f9] outline-none transition-all duration-200 bg-gray-50 focus:bg-white text-sm sm:text-base"
               required
             />
           </div>
 
           <div className="space-y-2">
-            <label className="block text-sm font-semibold text-[#021348] flex items-center gap-2">
-              <Phone size={16} />
+            <label className="block text-xs sm:text-sm font-semibold text-[#021348] flex items-center gap-2">
+              <Phone size={14} className="sm:w-4 sm:h-4" />
               Phone Number *
             </label>
             <input
@@ -130,32 +130,32 @@ export function CustomOrdersForm() {
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
               placeholder="09XX-XXX-XXXX"
-              className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0ea4f9] focus:border-[#0ea4f9] outline-none transition-all duration-200 bg-gray-50 focus:bg-white"
+              className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#0ea4f9] focus:border-[#0ea4f9] outline-none transition-all duration-200 bg-gray-50 focus:bg-white text-sm sm:text-base"
               required
             />
           </div>
         </div>
 
         <div className="space-y-2">
-          <label className="block text-sm font-semibold text-[#021348] flex items-center gap-2">
-            <MapPin size={16} />
+          <label className="block text-xs sm:text-sm font-semibold text-[#021348] flex items-center gap-2">
+            <MapPin size={14} className="sm:w-4 sm:h-4" />
             Delivery Address *
           </label>
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
             <input
               type="text"
               value={deliveryAddress}
               onChange={(e) => setDeliveryAddress(e.target.value)}
               placeholder="Click 'Pin Location' to select address or type manually"
-              className="flex-1 px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0ea4f9] focus:border-[#0ea4f9] outline-none transition-all duration-200 bg-gray-50 focus:bg-white"
+              className="flex-1 px-3 sm:px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#0ea4f9] focus:border-[#0ea4f9] outline-none transition-all duration-200 bg-gray-50 focus:bg-white text-sm sm:text-base"
               required
             />
             <button
               type="button"
               onClick={() => setShowLocationModal(true)}
-              className="px-6 py-4 bg-gradient-to-r from-[#0ea4f9] to-[#021348] text-white rounded-xl hover:from-[#021348] hover:to-[#0ea4f9] transition-all duration-200 font-semibold flex items-center gap-2 shadow-lg hover:shadow-xl"
+              className="px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-[#0ea4f9] to-[#021348] text-white rounded-lg sm:rounded-xl hover:from-[#021348] hover:to-[#0ea4f9] transition-all duration-200 font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-xl text-sm sm:text-base touch-manipulation"
             >
-              <MapPin size={18} />
+              <MapPin size={16} className="sm:w-[18px] sm:h-[18px]" />
               Pin Location
             </button>
           </div>
@@ -163,25 +163,25 @@ export function CustomOrdersForm() {
       </div>
 
       {/* Items List */}
-      <div className="space-y-6">
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-10 h-10 bg-gradient-to-r from-[#ffde59] to-[#ffc107] rounded-full flex items-center justify-center">
-            <Package className="text-[#021348]" size={20} />
+      <div className="space-y-4 sm:space-y-6">
+        <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
+          <div className="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-r from-[#ffde59] to-[#ffc107] rounded-full flex items-center justify-center">
+            <Package className="text-[#021348] sm:w-5 sm:h-5" size={16} />
           </div>
-          <h3 className="text-2xl font-bold text-[#021348]">Items to Request</h3>
+          <h3 className="text-xl sm:text-2xl font-bold text-[#021348]">Items to Request</h3>
         </div>
 
         {/* Add Item Form */}
-        <div className="bg-gradient-to-br from-[#ffde59]/10 to-white p-8 rounded-2xl border-2 border-[#ffde59]/20 space-y-6">
-          <div className="text-center mb-6">
-            <h4 className="text-lg font-semibold text-[#021348] mb-2">Add New Item</h4>
-            <p className="text-sm text-[#021348]/70">Describe what you need and provide an estimated price</p>
+        <div className="bg-gradient-to-br from-[#ffde59]/10 to-white p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl border-2 border-[#ffde59]/20 space-y-4 sm:space-y-6">
+          <div className="text-center mb-4 sm:mb-6">
+            <h4 className="text-base sm:text-lg font-semibold text-[#021348] mb-2">Add New Item</h4>
+            <p className="text-xs sm:text-sm text-[#021348]/70">Describe what you need and provide an estimated price</p>
           </div>
           
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             <div>
-              <label className="block text-sm font-semibold text-[#021348] mb-2 flex items-center gap-2">
-                <Package size={16} />
+              <label className="block text-xs sm:text-sm font-semibold text-[#021348] mb-2 flex items-center gap-2">
+                <Package size={14} className="sm:w-4 sm:h-4" />
                 Item Description *
               </label>
               <input
@@ -189,14 +189,14 @@ export function CustomOrdersForm() {
                 value={itemDescription}
                 onChange={(e) => setItemDescription(e.target.value)}
                 placeholder="e.g., 2 boxes of office supplies, 5kg rice, wedding decorations, etc."
-                className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0ea4f9] focus:border-[#0ea4f9] outline-none transition-all duration-200 bg-white"
+                className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#0ea4f9] focus:border-[#0ea4f9] outline-none transition-all duration-200 bg-white text-sm sm:text-base"
               />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
-                <label className="block text-sm font-semibold text-[#021348] mb-2 flex items-center gap-2">
-                  <Calendar size={16} />
+                <label className="block text-xs sm:text-sm font-semibold text-[#021348] mb-2 flex items-center gap-2">
+                  <Calendar size={14} className="sm:w-4 sm:h-4" />
                   Quantity *
                 </label>
                 <input
@@ -204,12 +204,12 @@ export function CustomOrdersForm() {
                   value={itemQuantity}
                   onChange={(e) => setItemQuantity(Math.max(1, Number.parseInt(e.target.value) || 1))}
                   min="1"
-                  className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0ea4f9] focus:border-[#0ea4f9] outline-none transition-all duration-200 bg-white"
+                  className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#0ea4f9] focus:border-[#0ea4f9] outline-none transition-all duration-200 bg-white text-sm sm:text-base"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-[#021348] mb-2 flex items-center gap-2">
+                <label className="block text-xs sm:text-sm font-semibold text-[#021348] mb-2 flex items-center gap-2">
                   Estimated Price (₱) *
                 </label>
                 <input
@@ -219,7 +219,7 @@ export function CustomOrdersForm() {
                   placeholder="0.00"
                   step="0.01"
                   min="0"
-                  className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0ea4f9] focus:border-[#0ea4f9] outline-none transition-all duration-200 bg-white"
+                  className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#0ea4f9] focus:border-[#0ea4f9] outline-none transition-all duration-200 bg-white text-sm sm:text-base"
                 />
               </div>
             </div>
@@ -228,37 +228,37 @@ export function CustomOrdersForm() {
           <button
             type="button"
             onClick={addItem}
-            className="w-full px-6 py-4 bg-gradient-to-r from-[#ffde59] to-[#ffc107] text-[#021348] rounded-xl hover:from-[#ffc107] hover:to-[#ffde59] transition-all duration-200 font-bold text-lg flex items-center justify-center gap-3 shadow-lg hover:shadow-xl"
+            className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-gradient-to-r from-[#ffde59] to-[#ffc107] text-[#021348] rounded-lg sm:rounded-xl hover:from-[#ffc107] hover:to-[#ffde59] transition-all duration-200 font-bold text-base sm:text-lg flex items-center justify-center gap-2 sm:gap-3 shadow-lg hover:shadow-xl touch-manipulation"
           >
-            <Plus size={20} />
+            <Plus size={18} className="sm:w-5 sm:h-5" />
             Add Item to Order
           </button>
         </div>
 
         {/* Items List Display */}
         {items.length > 0 && (
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             <div className="flex items-center justify-between">
-              <h4 className="text-lg font-semibold text-[#021348]">Your Order Items</h4>
-              <span className="text-sm text-[#021348]/70">{items.length} item{items.length !== 1 ? 's' : ''}</span>
+              <h4 className="text-base sm:text-lg font-semibold text-[#021348]">Your Order Items</h4>
+              <span className="text-xs sm:text-sm text-[#021348]/70">{items.length} item{items.length !== 1 ? 's' : ''}</span>
             </div>
             
             {items.map((item, index) => (
               <div
                 key={item.id}
-                className="bg-white border-2 border-gray-100 rounded-xl p-6 hover:border-[#0ea4f9]/30 transition-all duration-200 shadow-sm hover:shadow-md"
+                className="bg-white border-2 border-gray-100 rounded-lg sm:rounded-xl p-4 sm:p-6 hover:border-[#0ea4f9]/30 transition-all duration-200 shadow-sm hover:shadow-md"
               >
-                <div className="flex items-start justify-between">
+                <div className="flex items-start justify-between gap-3">
                   <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-6 h-6 bg-gradient-to-r from-[#0ea4f9] to-[#021348] text-white rounded-full flex items-center justify-center text-xs font-bold">
+                    <div className="flex items-center gap-2 sm:gap-3 mb-2">
+                      <div className="w-5 h-5 sm:w-6 sm:h-6 bg-gradient-to-r from-[#0ea4f9] to-[#021348] text-white rounded-full flex items-center justify-center text-xs font-bold">
                         {index + 1}
                       </div>
-                      <p className="font-semibold text-[#021348] text-lg">{item.description}</p>
+                      <p className="font-semibold text-[#021348] text-sm sm:text-base sm:text-lg">{item.description}</p>
                     </div>
-                    <div className="flex items-center gap-4 text-sm text-[#021348]/70">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs sm:text-sm text-[#021348]/70">
                       <span className="flex items-center gap-1">
-                        <Calendar size={14} />
+                        <Calendar size={12} className="sm:w-[14px] sm:h-[14px]" />
                         Qty: {item.quantity}
                       </span>
                       <span className="flex items-center gap-1">₱{item.estimatedPrice.toFixed(2)} each</span>
@@ -270,22 +270,22 @@ export function CustomOrdersForm() {
                   <button
                     type="button"
                     onClick={() => removeItem(item.id)}
-                    className="p-3 text-red-500 hover:bg-red-50 rounded-lg transition-all duration-200 hover:scale-110"
+                    className="p-2 sm:p-3 text-red-500 hover:bg-red-50 rounded-lg transition-all duration-200 hover:scale-110 touch-manipulation"
                   >
-                    <Trash2 size={20} />
+                    <Trash2 size={16} className="sm:w-5 sm:h-5" />
                   </button>
                 </div>
               </div>
             ))}
 
             {/* Total Amount */}
-            <div className="bg-gradient-to-r from-[#0ea4f9]/10 to-[#ffde59]/10 border-2 border-[#0ea4f9]/20 rounded-xl p-6">
-              <div className="flex justify-between items-center mb-2">
-                <span className="text-xl font-bold text-[#021348]">Estimated Total Amount:</span>
-                <span className="text-3xl font-bold text-[#0ea4f9]">₱{totalAmount.toFixed(2)}</span>
+            <div className="bg-gradient-to-r from-[#0ea4f9]/10 to-[#ffde59]/10 border-2 border-[#0ea4f9]/20 rounded-lg sm:rounded-xl p-4 sm:p-6">
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2 mb-2">
+                <span className="text-lg sm:text-xl font-bold text-[#021348]">Estimated Total Amount:</span>
+                <span className="text-2xl sm:text-3xl font-bold text-[#0ea4f9]">₱{totalAmount.toFixed(2)}</span>
               </div>
-              <div className="flex items-center gap-2 text-sm text-[#021348]/70">
-                <Clock size={14} />
+              <div className="flex items-center gap-2 text-xs sm:text-sm text-[#021348]/70">
+                <Clock size={12} className="sm:w-[14px] sm:h-[14px]" />
                 <span>Final pricing will be confirmed after review (usually within 2 hours)</span>
               </div>
             </div>
@@ -294,20 +294,20 @@ export function CustomOrdersForm() {
       </div>
 
       {/* Startup Instruction Label */}
-      <div className="bg-yellow-50 border border-yellow-200 text-yellow-900 rounded-xl p-4">
-        <p className="text-sm font-medium">
+      <div className="bg-yellow-50 border border-yellow-200 text-yellow-900 rounded-lg sm:rounded-xl p-3 sm:p-4">
+        <p className="text-xs sm:text-sm font-medium">
           Really sorry — we're a startup. Please tap "Copy order text", then "Open Messenger", and paste the message there.
         </p>
       </div>
 
       {/* Message Preview and Copy */}
-      <div className="bg-white border-2 border-gray-200 rounded-xl p-6">
-        <div className="flex items-center justify-between mb-3">
-          <h3 className="text-lg font-bold text-[#021348]">Message Preview</h3>
+      <div className="bg-white border-2 border-gray-200 rounded-lg sm:rounded-xl p-4 sm:p-6">
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 mb-3">
+          <h3 className="text-base sm:text-lg font-bold text-[#021348]">Message Preview</h3>
           <button
             type="button"
             onClick={handleCopy}
-            className="bg-[#021348] hover:bg-black text-white font-semibold py-2 px-4 rounded-lg transition-colors"
+            className="bg-[#021348] hover:bg-black text-white font-semibold py-2 px-3 sm:px-4 rounded-lg transition-colors text-xs sm:text-sm touch-manipulation"
           >
             {copied ? "Copied" : "Copy order text"}
           </button>
@@ -315,34 +315,34 @@ export function CustomOrdersForm() {
         <textarea
           readOnly
           value={buildMessage()}
-          className="w-full h-48 px-4 py-3 border border-gray-300 rounded-lg bg-gray-50 text-sm"
+          className="w-full h-40 sm:h-48 px-3 sm:px-4 py-2 sm:py-3 border border-gray-300 rounded-lg bg-gray-50 text-xs sm:text-sm"
         />
         <p className="text-xs text-gray-500 mt-2">Paste the copied text into the Messenger chat.</p>
       </div>
 
       {/* Submit Button */}
-      <div className="pt-6">
+      <div className="pt-4 sm:pt-6">
         <button
           type="submit"
           disabled={isSubmitting || items.length === 0}
-          className="w-full px-8 py-5 bg-gradient-to-r from-[#0ea4f9] to-[#021348] text-white rounded-xl hover:from-[#021348] hover:to-[#0ea4f9] transition-all duration-200 font-bold text-xl disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl flex items-center justify-center gap-3"
+          className="w-full px-6 sm:px-8 py-4 sm:py-5 bg-gradient-to-r from-[#0ea4f9] to-[#021348] text-white rounded-lg sm:rounded-xl hover:from-[#021348] hover:to-[#0ea4f9] transition-all duration-200 font-bold text-base sm:text-xl disabled:opacity-50 disabled:cursor-not-allowed shadow-lg hover:shadow-xl flex items-center justify-center gap-2 sm:gap-3 touch-manipulation"
         >
           {isSubmitting ? (
             <>
-              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
+              <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
               Sending Request...
             </>
           ) : (
             <>
-              <CheckCircle size={24} />
+              <CheckCircle size={20} className="sm:w-6 sm:h-6" />
               Open Messenger
             </>
           )}
         </button>
         
-        <div className="mt-4 text-center">
-          <p className="text-sm text-[#021348]/70 flex items-center justify-center gap-2">
-            <Clock size={14} />
+        <div className="mt-3 sm:mt-4 text-center">
+          <p className="text-xs sm:text-sm text-[#021348]/70 flex items-center justify-center gap-2">
+            <Clock size={12} className="sm:w-[14px] sm:h-[14px]" />
             We'll respond via Messenger within 30 minutes
           </p>
         </div>

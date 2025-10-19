@@ -446,7 +446,7 @@ export function LocationModal({ isOpen, onClose, onLocationSelect }: LocationMod
 
   return createPortal(
     <div 
-      className="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-md flex items-center justify-center p-4 overflow-hidden"
+      className="fixed inset-0 bg-black bg-opacity-75 backdrop-blur-md flex items-center justify-center p-2 sm:p-4 overflow-hidden"
       style={{ 
         position: 'fixed',
         top: 0,
@@ -463,7 +463,7 @@ export function LocationModal({ isOpen, onClose, onLocationSelect }: LocationMod
       }}
     >
       <div 
-        className="bg-white rounded-xl shadow-2xl max-w-2xl w-full max-h-[95vh] overflow-y-auto relative"
+        className="bg-white rounded-lg sm:rounded-xl shadow-2xl max-w-xs sm:max-w-md md:max-w-2xl w-full max-h-[98vh] sm:max-h-[95vh] overflow-y-auto relative"
         style={{
           position: 'relative',
           zIndex: 100000,
@@ -472,13 +472,13 @@ export function LocationModal({ isOpen, onClose, onLocationSelect }: LocationMod
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6 flex items-center justify-between">
+        <div className="sticky top-0 bg-gradient-to-r from-blue-600 to-blue-700 text-white p-3 sm:p-4 md:p-6 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <MapPin size={24} />
-            <h2 className="text-2xl font-bold">Select Delivery Location</h2>
+            <MapPin size={18} className="sm:w-6 sm:h-6" />
+            <h2 className="text-lg sm:text-xl md:text-2xl font-bold">Select Delivery Location</h2>
           </div>
-          <button onClick={onClose} className="hover:bg-blue-800 p-2 rounded-lg transition-colors">
-            <X size={24} />
+          <button onClick={onClose} className="hover:bg-blue-800 p-1 sm:p-2 rounded-lg transition-colors touch-manipulation">
+            <X size={18} className="sm:w-6 sm:h-6" />
           </button>
         </div>
 
@@ -486,88 +486,88 @@ export function LocationModal({ isOpen, onClose, onLocationSelect }: LocationMod
         <div className="flex border-b border-gray-200 overflow-x-auto">
           <button
             onClick={() => setActiveTab("current")}
-            className={`flex-shrink-0 py-4 px-4 font-semibold flex items-center justify-center gap-2 transition-colors ${
+            className={`flex-shrink-0 py-3 sm:py-4 px-2 sm:px-4 font-semibold flex items-center justify-center gap-1 sm:gap-2 transition-colors text-xs sm:text-sm touch-manipulation ${
               activeTab === "current"
                 ? "bg-blue-50 text-blue-600 border-b-2 border-blue-600"
                 : "text-gray-600 hover:bg-gray-50"
             }`}
           >
-            <Navigation size={18} />
+            <Navigation size={14} className="sm:w-[18px] sm:h-[18px]" />
             <span className="hidden sm:inline">Current Location</span>
             <span className="sm:hidden">Current</span>
           </button>
           <button
             onClick={() => setActiveTab("map")}
-            className={`flex-shrink-0 py-4 px-4 font-semibold flex items-center justify-center gap-2 transition-colors ${
+            className={`flex-shrink-0 py-3 sm:py-4 px-2 sm:px-4 font-semibold flex items-center justify-center gap-1 sm:gap-2 transition-colors text-xs sm:text-sm touch-manipulation ${
               activeTab === "map"
                 ? "bg-blue-50 text-blue-600 border-b-2 border-blue-600"
                 : "text-gray-600 hover:bg-gray-50"
             }`}
           >
-            <Map size={18} />
+            <Map size={14} className="sm:w-[18px] sm:h-[18px]" />
             <span className="hidden sm:inline">Pin on Map</span>
             <span className="sm:hidden">Map</span>
           </button>
           <button
             onClick={() => setActiveTab("recent")}
-            className={`flex-shrink-0 py-4 px-4 font-semibold flex items-center justify-center gap-2 transition-colors ${
+            className={`flex-shrink-0 py-3 sm:py-4 px-2 sm:px-4 font-semibold flex items-center justify-center gap-1 sm:gap-2 transition-colors text-xs sm:text-sm touch-manipulation ${
               activeTab === "recent"
                 ? "bg-blue-50 text-blue-600 border-b-2 border-blue-600"
                 : "text-gray-600 hover:bg-gray-50"
             }`}
           >
-            <Clock size={18} />
+            <Clock size={14} className="sm:w-[18px] sm:h-[18px]" />
             <span className="hidden sm:inline">Recent</span>
             <span className="sm:hidden">Recent</span>
           </button>
           <button
             onClick={() => setActiveTab("manual")}
-            className={`flex-shrink-0 py-4 px-4 font-semibold flex items-center justify-center gap-2 transition-colors ${
+            className={`flex-shrink-0 py-3 sm:py-4 px-2 sm:px-4 font-semibold flex items-center justify-center gap-1 sm:gap-2 transition-colors text-xs sm:text-sm touch-manipulation ${
               activeTab === "manual"
                 ? "bg-blue-50 text-blue-600 border-b-2 border-blue-600"
                 : "text-gray-600 hover:bg-gray-50"
             }`}
           >
-            <Type size={18} />
+            <Type size={14} className="sm:w-[18px] sm:h-[18px]" />
             <span className="hidden sm:inline">Type Address</span>
             <span className="sm:hidden">Type</span>
           </button>
         </div>
 
         {/* Content */}
-        <div className="p-6">
+        <div className="p-3 sm:p-4 md:p-6">
           {/* Current Location Tab */}
           {activeTab === "current" && (
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Navigation size={32} className="text-blue-600" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <Navigation size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8 text-blue-600" />
                 </div>
-                <p className="text-gray-600 mb-6">Use your device's GPS to get your current location automatically.</p>
+                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">Use your device's GPS to get your current location automatically.</p>
               </div>
               <button
                 onClick={handleUseCurrentLocation}
                 disabled={isLoading}
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 sm:py-4 px-4 sm:px-6 rounded-lg sm:rounded-xl transition-all duration-200 disabled:opacity-50 flex items-center justify-center gap-2 sm:gap-3 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 text-sm sm:text-base touch-manipulation"
               >
-                {isLoading && <Loader size={20} className="animate-spin" />}
+                {isLoading && <Loader size={16} className="sm:w-5 sm:h-5 animate-spin" />}
                 {isLoading ? "Getting Location..." : "Get My Current Location"}
               </button>
               {selectedLocation && (
-                <div className={`p-4 rounded-xl border-2 transition-all duration-200 ${
+                <div className={`p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 transition-all duration-200 ${
                   isValidLocation ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'
                 }`}>
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-2 sm:gap-3">
                     {isValidLocation ? (
-                      <CheckCircle size={20} className="text-green-600 mt-0.5" />
+                      <CheckCircle size={16} className="sm:w-5 sm:h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     ) : (
-                      <AlertCircle size={20} className="text-red-600 mt-0.5" />
+                      <AlertCircle size={16} className="sm:w-5 sm:h-5 text-red-600 mt-0.5 flex-shrink-0" />
                     )}
-                    <div className="flex-1">
-                      <p className="text-sm text-gray-600 mb-1">Selected Address:</p>
-                      <p className="text-lg font-semibold text-gray-900">{selectedLocation.address}</p>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs sm:text-sm text-gray-600 mb-1">Selected Address:</p>
+                      <p className="text-sm sm:text-base md:text-lg font-semibold text-gray-900 break-words">{selectedLocation.address}</p>
                       {isValidLocation !== null && (
-                        <p className={`text-sm font-medium mt-1 ${
+                        <p className={`text-xs sm:text-sm font-medium mt-1 ${
                           isValidLocation ? 'text-green-700' : 'text-red-700'
                         }`}>
                           {isValidLocation ? '✓ Within delivery service area' : '⚠ Outside delivery service area'}
@@ -582,40 +582,40 @@ export function LocationModal({ isOpen, onClose, onLocationSelect }: LocationMod
 
           {/* Map Tab */}
           {activeTab === "map" && (
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Map size={32} className="text-green-600" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <Map size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8 text-green-600" />
                 </div>
-                <p className="text-gray-600 mb-6">Click on the map to pin your delivery location. Green pins indicate locations within our service area.</p>
+                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">Click on the map to pin your delivery location. Green pins indicate locations within our service area.</p>
               </div>
               <div className="relative">
-                <div ref={mapContainer} className="h-96 w-full rounded-xl border-2 border-gray-200 shadow-lg overflow-hidden bg-gray-100" />
+                <div ref={mapContainer} className="h-64 sm:h-80 md:h-96 w-full rounded-lg sm:rounded-xl border-2 border-gray-200 shadow-lg overflow-hidden bg-gray-100" />
                 {isMapLoading && (
-                  <div className="absolute inset-0 bg-gray-100 rounded-xl flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-                      <p className="text-gray-600 font-medium">Loading interactive map...</p>
-                      <p className="text-gray-400 text-sm mt-1">Please wait while we prepare your location selector</p>
+                  <div className="absolute inset-0 bg-gray-100 rounded-lg sm:rounded-xl flex items-center justify-center">
+                    <div className="text-center p-4">
+                      <div className="animate-spin rounded-full h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12 border-b-2 border-blue-600 mx-auto mb-3 sm:mb-4"></div>
+                      <p className="text-gray-600 font-medium text-sm sm:text-base">Loading interactive map...</p>
+                      <p className="text-gray-400 text-xs sm:text-sm mt-1">Please wait while we prepare your location selector</p>
                     </div>
                   </div>
                 )}
               </div>
               {selectedLocation && (
-                <div className={`p-4 rounded-xl border-2 transition-all duration-200 ${
+                <div className={`p-3 sm:p-4 rounded-lg sm:rounded-xl border-2 transition-all duration-200 ${
                   isValidLocation ? 'bg-green-50 border-green-200' : 'bg-red-50 border-red-200'
                 }`}>
-                  <div className="flex items-start gap-3">
+                  <div className="flex items-start gap-2 sm:gap-3">
                     {isValidLocation ? (
-                      <CheckCircle size={20} className="text-green-600 mt-0.5" />
+                      <CheckCircle size={16} className="sm:w-5 sm:h-5 text-green-600 mt-0.5 flex-shrink-0" />
                     ) : (
-                      <AlertCircle size={20} className="text-red-600 mt-0.5" />
+                      <AlertCircle size={16} className="sm:w-5 sm:h-5 text-red-600 mt-0.5 flex-shrink-0" />
                     )}
-                    <div className="flex-1">
-                      <p className="text-sm text-gray-600 mb-1">Selected Address:</p>
-                      <p className="text-lg font-semibold text-gray-900">{selectedLocation.address}</p>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs sm:text-sm text-gray-600 mb-1">Selected Address:</p>
+                      <p className="text-sm sm:text-base md:text-lg font-semibold text-gray-900 break-words">{selectedLocation.address}</p>
                       {isValidLocation !== null && (
-                        <p className={`text-sm font-medium mt-1 ${
+                        <p className={`text-xs sm:text-sm font-medium mt-1 ${
                           isValidLocation ? 'text-green-700' : 'text-red-700'
                         }`}>
                           {isValidLocation ? '✓ Within delivery service area' : '⚠ Outside delivery service area'}
@@ -630,17 +630,17 @@ export function LocationModal({ isOpen, onClose, onLocationSelect }: LocationMod
 
           {/* Recent Locations Tab */}
           {activeTab === "recent" && (
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div className="text-center">
-                <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Clock size={32} className="text-purple-600" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <Clock size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8 text-purple-600" />
                 </div>
-                <p className="text-gray-600 mb-6">Select from your recently used delivery locations.</p>
+                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">Select from your recently used delivery locations.</p>
               </div>
 
               {/* Search Bar */}
               <div className="relative">
-                <Search size={20} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                <Search size={16} className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 sm:w-5 sm:h-5" />
                 <input
                   type="text"
                   placeholder="Search addresses..."
@@ -649,28 +649,28 @@ export function LocationModal({ isOpen, onClose, onLocationSelect }: LocationMod
                     setSearchQuery(e.target.value)
                     searchAddresses(e.target.value)
                   }}
-                  className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                  className="w-full pl-9 sm:pl-10 pr-4 py-2 sm:py-3 border border-gray-300 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm sm:text-base"
                 />
                 {isSearching && (
-                  <Loader size={20} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 animate-spin" />
+                  <Loader size={16} className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 animate-spin sm:w-5 sm:h-5" />
                 )}
               </div>
 
               {/* Search Results */}
               {searchResults.length > 0 && (
                 <div className="space-y-2">
-                  <h4 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-                    <Search size={16} />
+                  <h4 className="text-xs sm:text-sm font-semibold text-gray-700 flex items-center gap-2">
+                    <Search size={14} className="sm:w-4 sm:h-4" />
                     Search Results
                   </h4>
-                  <div className="space-y-2 max-h-40 overflow-y-auto">
+                  <div className="space-y-2 max-h-32 sm:max-h-40 overflow-y-auto">
                     {searchResults.map((result) => (
                       <button
                         key={result.id}
                         onClick={() => handleLocationSelect(result)}
-                        className="w-full p-3 text-left bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+                        className="w-full p-2 sm:p-3 text-left bg-white border border-gray-200 rounded-lg sm:rounded-lg hover:bg-gray-50 transition-colors touch-manipulation"
                       >
-                        <p className="text-sm font-medium text-gray-900">{result.address}</p>
+                        <p className="text-xs sm:text-sm font-medium text-gray-900 break-words">{result.address}</p>
                       </button>
                     ))}
                   </div>
@@ -680,8 +680,8 @@ export function LocationModal({ isOpen, onClose, onLocationSelect }: LocationMod
               {/* Recent Locations */}
               {recentLocations.length > 0 && (
                 <div className="space-y-2">
-                  <h4 className="text-sm font-semibold text-gray-700 flex items-center gap-2">
-                    <Clock size={16} />
+                  <h4 className="text-xs sm:text-sm font-semibold text-gray-700 flex items-center gap-2">
+                    <Clock size={14} className="sm:w-4 sm:h-4" />
                     Recent Locations
                   </h4>
                   <div className="space-y-2">
@@ -689,16 +689,16 @@ export function LocationModal({ isOpen, onClose, onLocationSelect }: LocationMod
                       <button
                         key={location.id}
                         onClick={() => handleLocationSelect(location)}
-                        className="w-full p-3 text-left bg-white border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors"
+                        className="w-full p-2 sm:p-3 text-left bg-white border border-gray-200 rounded-lg sm:rounded-lg hover:bg-gray-50 transition-colors touch-manipulation"
                       >
-                        <div className="flex items-center justify-between">
-                          <div className="flex-1">
-                            <p className="text-sm font-medium text-gray-900">{location.address}</p>
+                        <div className="flex items-center justify-between gap-2">
+                          <div className="flex-1 min-w-0">
+                            <p className="text-xs sm:text-sm font-medium text-gray-900 break-words">{location.address}</p>
                             <p className="text-xs text-gray-500">
                               {new Date(location.timestamp).toLocaleDateString()}
                             </p>
                           </div>
-                          <Star size={16} className="text-yellow-400" />
+                          <Star size={14} className="text-yellow-400 flex-shrink-0 sm:w-4 sm:h-4" />
                         </div>
                       </button>
                     ))}
@@ -708,10 +708,10 @@ export function LocationModal({ isOpen, onClose, onLocationSelect }: LocationMod
 
               {/* No Recent Locations */}
               {recentLocations.length === 0 && searchResults.length === 0 && (
-                <div className="text-center py-8">
-                  <Clock size={48} className="text-gray-300 mx-auto mb-4" />
-                  <p className="text-gray-500">No recent locations found.</p>
-                  <p className="text-sm text-gray-400">Use other methods to select your location.</p>
+                <div className="text-center py-6 sm:py-8">
+                  <Clock size={32} className="sm:w-12 sm:h-12 text-gray-300 mx-auto mb-3 sm:mb-4" />
+                  <p className="text-sm sm:text-base text-gray-500">No recent locations found.</p>
+                  <p className="text-xs sm:text-sm text-gray-400">Use other methods to select your location.</p>
                 </div>
               )}
             </div>
@@ -719,27 +719,27 @@ export function LocationModal({ isOpen, onClose, onLocationSelect }: LocationMod
 
           {/* Manual Entry Tab */}
           {activeTab === "manual" && (
-            <div className="space-y-4">
+            <div className="space-y-3 sm:space-y-4">
               <div className="text-center">
-                <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Type size={32} className="text-orange-600" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <Type size={24} className="sm:w-7 sm:h-7 md:w-8 md:h-8 text-orange-600" />
                 </div>
-                <p className="text-gray-600 mb-6">Type your complete delivery address manually.</p>
+                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">Type your complete delivery address manually.</p>
               </div>
               <textarea
                 value={manualAddress}
                 onChange={(e) => setManualAddress(e.target.value)}
                 placeholder="Enter your complete delivery address (e.g., 123 Main Street, Barangay Tinago, Naga City, Camarines Sur)"
-                rows={4}
-                className="w-full px-4 py-3 border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none"
+                rows={3}
+                className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-gray-300 rounded-lg sm:rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors resize-none text-sm sm:text-base"
               />
               {manualAddress && (
-                <div className="p-4 bg-blue-50 border-2 border-blue-200 rounded-xl">
-                  <div className="flex items-start gap-3">
-                    <CheckCircle size={20} className="text-blue-600 mt-0.5" />
-                    <div className="flex-1">
-                      <p className="text-sm text-gray-600 mb-1">Your Address:</p>
-                      <p className="text-lg font-semibold text-gray-900">{manualAddress}</p>
+                <div className="p-3 sm:p-4 bg-blue-50 border-2 border-blue-200 rounded-lg sm:rounded-xl">
+                  <div className="flex items-start gap-2 sm:gap-3">
+                    <CheckCircle size={16} className="sm:w-5 sm:h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs sm:text-sm text-gray-600 mb-1">Your Address:</p>
+                      <p className="text-sm sm:text-base md:text-lg font-semibold text-gray-900 break-words">{manualAddress}</p>
                     </div>
                   </div>
                 </div>
@@ -749,10 +749,10 @@ export function LocationModal({ isOpen, onClose, onLocationSelect }: LocationMod
         </div>
 
         {/* Footer */}
-        <div className="sticky bottom-0 bg-gradient-to-r from-gray-50 to-gray-100 border-t border-gray-200 p-6 flex gap-3">
+        <div className="sticky bottom-0 bg-gradient-to-r from-gray-50 to-gray-100 border-t border-gray-200 p-3 sm:p-4 md:p-6 flex gap-2 sm:gap-3">
           <button
             onClick={onClose}
-            className="flex-1 bg-white hover:bg-gray-50 text-gray-700 font-semibold py-3 px-6 rounded-xl transition-all duration-200 border-2 border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md"
+            className="flex-1 bg-white hover:bg-gray-50 text-gray-700 font-semibold py-2 sm:py-3 px-3 sm:px-6 rounded-lg sm:rounded-xl transition-all duration-200 border-2 border-gray-200 hover:border-gray-300 shadow-sm hover:shadow-md text-sm sm:text-base touch-manipulation"
           >
             Cancel
           </button>
@@ -763,7 +763,7 @@ export function LocationModal({ isOpen, onClose, onLocationSelect }: LocationMod
               (activeTab === "map" && !selectedLocation) ||
               (activeTab === "manual" && !manualAddress.trim())
             }
-            className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-200 disabled:opacity-50 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none"
+            className="flex-1 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-2 sm:py-3 px-3 sm:px-6 rounded-lg sm:rounded-xl transition-all duration-200 disabled:opacity-50 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 disabled:transform-none text-sm sm:text-base touch-manipulation"
           >
             Confirm Location
           </button>

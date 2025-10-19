@@ -50,14 +50,14 @@ export function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section className="py-20 md:py-28 px-4 bg-white">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-28 px-4 sm:px-6 bg-white">
       <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-          <p className="text-lg text-gray-600">Everything you need to know about our delivery services</p>
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Frequently Asked Questions</h2>
+          <p className="text-base sm:text-lg text-gray-600">Everything you need to know about our delivery services</p>
         </div>
 
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
           {faqs.map((faq, index) => (
             <div
               key={index}
@@ -65,33 +65,33 @@ export function FAQ() {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
-                className="w-full px-6 py-4 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors text-left"
+                className="w-full px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between bg-white hover:bg-gray-50 transition-colors text-left touch-manipulation"
               >
-                <span className="font-semibold text-gray-900">{faq.question}</span>
+                <span className="font-semibold text-gray-900 text-sm sm:text-base pr-2">{faq.question}</span>
                 <ChevronDown
-                  size={20}
-                  className={`text-blue-600 transition-transform flex-shrink-0 ${
+                  size={18}
+                  className={`text-blue-600 transition-transform flex-shrink-0 sm:w-5 sm:h-5 ${
                     openIndex === index ? "rotate-180" : ""
                   }`}
                 />
               </button>
               {openIndex === index && (
-                <div className="px-6 py-4 bg-gray-50 border-t border-gray-200">
-                  <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                <div className="px-4 sm:px-6 py-3 sm:py-4 bg-gray-50 border-t border-gray-200">
+                  <p className="text-gray-700 leading-relaxed text-sm sm:text-base">{faq.answer}</p>
                 </div>
               )}
             </div>
           ))}
         </div>
 
-        <div className="mt-12 bg-blue-50 rounded-lg p-8 text-center border border-blue-200">
-          <h3 className="text-xl font-bold text-gray-900 mb-2">Still have questions?</h3>
-          <p className="text-gray-600 mb-4">Our customer support team is available 24/7 to help you</p>
+        <div className="mt-8 sm:mt-12 bg-blue-50 rounded-lg p-4 sm:p-6 md:p-8 text-center border border-blue-200">
+          <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2">Still have questions?</h3>
+          <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base">Our customer support team is available 24/7 to help you</p>
           <a
             href="https://m.me/105985294772305"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+            className="inline-block bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors text-sm sm:text-base touch-manipulation"
           >
             Chat with us on Messenger
           </a>

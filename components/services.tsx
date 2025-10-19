@@ -42,27 +42,27 @@ const services = [
 
 export function Services() {
   return (
-    <section className="py-20 md:py-28 px-4 bg-gradient-to-b from-white to-[#ffde59]/5">
+    <section className="py-12 sm:py-16 md:py-20 lg:py-28 px-4 sm:px-6 bg-gradient-to-b from-white to-[#ffde59]/5">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#021348] mb-4">Our Services</h2>
-          <p className="text-lg text-[#021348]/80 max-w-2xl mx-auto">
+        <div className="text-center mb-12 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#021348] mb-3 sm:mb-4">Our Services</h2>
+          <p className="text-base sm:text-lg text-[#021348]/80 max-w-2xl mx-auto">
             Choose the service that fits your needs and get started in minutes
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
           {services.map((service) => {
             const Icon = service.icon
             return (
               <Link key={service.title} href={service.href}>
-                <div className="bg-white border border-gray-200 rounded-xl p-8 text-center hover:shadow-xl hover:border-[#0ea4f9]/30 hover:shadow-[#0ea4f9]/10 transition-all cursor-pointer h-full group">
-                  <div className="flex justify-center mb-4">
-                    <div className="w-20 h-20 bg-[#ffde59]/10 rounded-lg flex items-center justify-center group-hover:bg-[#ffde59]/20 transition-colors">
-                      <Icon size={40} className={service.color} />
+                <div className="bg-white border border-gray-200 rounded-lg sm:rounded-xl p-4 sm:p-6 md:p-8 text-center hover:shadow-xl hover:border-[#0ea4f9]/30 hover:shadow-[#0ea4f9]/10 transition-all cursor-pointer h-full group touch-manipulation">
+                  <div className="flex justify-center mb-3 sm:mb-4">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#ffde59]/10 rounded-lg flex items-center justify-center group-hover:bg-[#ffde59]/20 transition-colors">
+                      <Icon size={32} className={`${service.color} sm:w-10 sm:h-10`} />
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-[#021348] mb-2">{service.title}</h3>
-                  <p className="text-[#021348]/70 text-sm leading-relaxed">{service.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-[#021348] mb-2">{service.title}</h3>
+                  <p className="text-[#021348]/70 text-xs sm:text-sm leading-relaxed">{service.description}</p>
                 </div>
               </Link>
             )

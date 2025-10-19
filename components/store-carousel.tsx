@@ -49,39 +49,39 @@ export function StoreCarousel() {
   ]
 
   return (
-    <div className="w-full bg-gradient-to-br from-white via-gray-50 to-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
+    <div className="w-full bg-gradient-to-br from-white via-gray-50 to-white rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-12 shadow-xl border border-gray-100">
       <div className="relative">
-        <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 transition-all duration-500 ${isAnimating ? 'opacity-70 scale-95' : 'opacity-100 scale-100'}`}>
+        <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-8 sm:mb-10 md:mb-12 transition-all duration-500 ${isAnimating ? 'opacity-70 scale-95' : 'opacity-100 scale-100'}`}>
           {visibleStores.map((store, index) => (
             <div
               key={`${store.id}-${currentIndex}`}
-              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-gray-100"
+              className="group bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105 hover:-translate-y-2 border border-gray-100"
             >
-              <div className="relative h-56 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
+              <div className="relative h-40 sm:h-48 md:h-56 overflow-hidden bg-gradient-to-br from-gray-100 to-gray-200">
                 <img 
                   src={store.image || "/placeholder.svg"} 
                   alt={store.name} 
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                 />
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1 flex items-center gap-1">
-                  <Star size={14} className="text-yellow-500 fill-yellow-500" />
-                  <span className="text-sm font-bold text-gray-800">{store.rating}</span>
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 sm:px-3 flex items-center gap-1">
+                  <Star size={12} className="sm:w-3 sm:h-3 md:w-[14px] md:h-[14px] text-yellow-500 fill-yellow-500" />
+                  <span className="text-xs sm:text-sm font-bold text-gray-800">{store.rating}</span>
                 </div>
-                <div className="absolute bottom-4 left-4 bg-gradient-to-r from-[#0ea4f9] to-[#021348] text-white px-3 py-1 rounded-full text-xs font-semibold">
+                <div className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 bg-gradient-to-r from-[#0ea4f9] to-[#021348] text-white px-2 py-1 sm:px-3 rounded-full text-xs font-semibold">
                   {store.category}
                 </div>
               </div>
-              <div className="p-6">
-                <h3 className="font-bold text-xl text-gray-900 mb-2 group-hover:text-[#0ea4f9] transition-colors duration-300">
+              <div className="p-4 sm:p-5 md:p-6">
+                <h3 className="font-bold text-lg sm:text-xl text-gray-900 mb-2 group-hover:text-[#0ea4f9] transition-colors duration-300">
                   {store.name}
                 </h3>
-                <div className="flex items-center justify-between text-sm text-gray-600">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-0 text-xs sm:text-sm text-gray-600">
                   <div className="flex items-center gap-1">
-                    <Clock size={16} className="text-green-600" />
+                    <Clock size={14} className="sm:w-4 sm:h-4 text-green-600" />
                     <span className="font-medium">{store.deliveryTime}</span>
                   </div>
                   <div className="flex items-center gap-1">
-                    <MapPin size={16} className="text-blue-600" />
+                    <MapPin size={14} className="sm:w-4 sm:h-4 text-blue-600" />
                     <span className="font-medium">{store.distance}</span>
                   </div>
                 </div>
@@ -95,14 +95,14 @@ export function StoreCarousel() {
           <button
             onClick={goToPrevious}
             disabled={isAnimating}
-            className="group bg-gradient-to-r from-[#0ea4f9] to-[#021348] hover:from-[#021348] hover:to-[#0ea4f9] text-white p-3 md:p-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+            className="group bg-gradient-to-r from-[#0ea4f9] to-[#021348] hover:from-[#021348] hover:to-[#0ea4f9] text-white p-2 sm:p-3 md:p-4 rounded-xl sm:rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
             aria-label="Previous stores"
           >
-            <ChevronLeft size={20} className="md:w-6 md:h-6 group-hover:-translate-x-1 transition-transform duration-300" />
+            <ChevronLeft size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:-translate-x-1 transition-transform duration-300" />
           </button>
 
           {/* Enhanced Dots Indicator */}
-          <div className="flex gap-3">
+          <div className="flex gap-2 sm:gap-3">
             {stores.map((_, index) => (
               <button
                 key={index}
@@ -113,10 +113,10 @@ export function StoreCarousel() {
                   setTimeout(() => setIsAnimating(false), 300)
                 }}
                 disabled={isAnimating}
-                className={`h-3 rounded-full transition-all duration-500 hover:scale-125 ${
+                className={`h-2 sm:h-3 rounded-full transition-all duration-500 hover:scale-125 ${
                   index === currentIndex 
-                    ? "bg-gradient-to-r from-[#0ea4f9] to-[#021348] w-12 shadow-lg" 
-                    : "bg-gray-300 w-3 hover:bg-gray-400"
+                    ? "bg-gradient-to-r from-[#0ea4f9] to-[#021348] w-8 sm:w-12 shadow-lg" 
+                    : "bg-gray-300 w-2 sm:w-3 hover:bg-gray-400"
                 }`}
                 aria-label={`Go to store ${index + 1}`}
               />
@@ -126,10 +126,10 @@ export function StoreCarousel() {
           <button
             onClick={goToNext}
             disabled={isAnimating}
-            className="group bg-gradient-to-r from-[#0ea4f9] to-[#021348] hover:from-[#021348] hover:to-[#0ea4f9] text-white p-3 md:p-4 rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
+            className="group bg-gradient-to-r from-[#0ea4f9] to-[#021348] hover:from-[#021348] hover:to-[#0ea4f9] text-white p-2 sm:p-3 md:p-4 rounded-xl sm:rounded-2xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed touch-manipulation"
             aria-label="Next stores"
           >
-            <ChevronRight size={20} className="md:w-6 md:h-6 group-hover:translate-x-1 transition-transform duration-300" />
+            <ChevronRight size={18} className="sm:w-5 sm:h-5 md:w-6 md:h-6 group-hover:translate-x-1 transition-transform duration-300" />
           </button>
         </div>
       </div>
